@@ -9,27 +9,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-let whitelist = [
-  "http://localhost:3000",
-  "http://54.205.45.185:3000",
-  "http://localhost:6001",
-  "http://tickitz.mooo.com",
-  "https://tickitz.mooo.com",
-  "http://tickitz.rpetz.my.id",
-  "https://tickitz.rpetz.my.id",
-  "https://tickitz-kitz.netlify.app"
-];
-let corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-};
-
-app.use(cors(corsOptions));
+app.use(cors())
 const router = require("./routes");
 router(app, "/tickitz/api");
 app.get("*", (req, res) => {
