@@ -17,6 +17,7 @@ let whitelist = [
   "https://tickitz.mooo.com",
   "http://tickitz.rpetz.my.id",
   "https://tickitz.rpetz.my.id",
+  "https://tickitz-server.herokuapp.com"
 ];
 let corsOptions = {
   origin: function (origin, callback) {
